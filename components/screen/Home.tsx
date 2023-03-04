@@ -5,7 +5,12 @@ import Screen from '../layout/Screen';
 const Home = () => {
   return (
     <Screen>
-      <Text>Home</Text>
+      <Text
+        style={{
+          fontFamily: 'Poppins',
+        }}>
+        Home
+      </Text>
     </Screen>
   );
 };
