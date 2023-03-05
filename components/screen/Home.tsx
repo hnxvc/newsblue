@@ -1,6 +1,7 @@
 import {Text} from 'react-native';
 import React from 'react';
 import Screen from '../layout/Screen';
+import Heading from '../Heading';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
           backgroundColor: '#ccc',
         }}>
         Home
+        <Heading />
       </Text>
     </Screen>
   );
