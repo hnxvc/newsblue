@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   StatusBar,
   useColorScheme,
+  ScrollView,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -20,7 +21,7 @@ const Screen = ({children}: {children: React.ReactNode}) => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      {children}
+      <ScrollView>{children}</ScrollView>
     </SafeAreaView>
   );
 };

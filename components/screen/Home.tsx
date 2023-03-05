@@ -8,6 +8,7 @@ const Home = () => {
       <Text
         style={{
           fontFamily: 'Poppins',
+          backgroundColor: '#ccc',
         }}>
         Home
       </Text>
