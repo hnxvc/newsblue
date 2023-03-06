@@ -1,9 +1,9 @@
 // @ts-ignore
 import styled from 'styled-components/native';
 import React from 'react';
-import {ThemeContextType} from '../context/ThemeContext';
+import {ThemeContextType} from '../../context/ThemeContext';
 import LinearGradient from 'react-native-linear-gradient';
-import CartImg from '../assets/images/Card.png';
+import CartImg from '../../assets/images/Card.png';
 
 const Wrap = styled.View`
   border-radius: 12;
@@ -24,7 +24,7 @@ const WrapText = styled(LinearGradient)`
   padding-left: 20px;
   padding-right: 20px;
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   background: rgba(255, 255, 255, 0.5);
   /* backdrop-filter: blur(12px); */
   border-radius: 8px;
@@ -46,7 +46,12 @@ const Date = styled.Text`
   margin-top: 10px;
 `;
 
-const Card = () => {
+type Props = {
+  title: string;
+  date: string;
+};
+
+const Card = ({title, date}: Props) => {
   return (
     <Wrap>
       <Image source={CartImg}>
@@ -57,8 +62,8 @@ const Card = () => {
             'rgba(255, 255, 255, 0) 111.69%)',
           ]}
           start={{x: 270, y: 0}}>
-          <Title>7 steps to become a UI/UX designer</Title>
-          <Date>Dec 28 2021</Date>
+          <Title>{title}</Title>
+          <Date>{date}</Date>
         </WrapText>
       </Image>
     </Wrap>

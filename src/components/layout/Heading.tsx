@@ -23,10 +23,10 @@ const Link = styled.Text`
   font-family: 'Poppins';
 `;
 
-const Heading = () => {
+const Heading = ({title}: {title: string}) => {
   return (
     <Wrap>
-      <Title>Popular Topics </Title>
+      <Title>{title}</Title>
       <Link>See all</Link>
     </Wrap>
   );

@@ -1,16 +1,11 @@
 import React from 'react';
 import Screen from '../layout/Screen';
-import Heading from '../Heading';
-import Cart from '../Card';
-import Section from '../Section';
+import PopularPost from '../PopularPost';
 
 const Home = () => {
   return (
     <Screen>
-      <Section>
-        <Heading />
-        <Cart />
-      </Section>
+      <PopularPost />
     </Screen>
   );
 };

@@ -10,7 +10,7 @@ import Search from './src/components/screen/Search';
 
 import {ThemeProvider} from 'styled-components';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBG from './src/components/layout/TabBG';
 
@@ -30,9 +30,17 @@ function App(): JSX.Element {
     SplashScreen.hide();
   }, []);
 
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#fff',
+    },
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <Tab.Navigator
           screenOptions={({route}) => ({
             tabBarStyle: {
