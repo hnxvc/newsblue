@@ -57,9 +57,21 @@ function App(): JSX.Element {
             tabBarActiveTintColor: '#0167FF',
             tabBarInactiveTintColor: '#7A7A7A',
           })}>
-          <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Category" component={Category} />
-          <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="Category"
+            component={Category}
+            options={{headerShown: false}}
+          />
+          <Tab.Screen
+            name="Search"
+            component={Search}
+            options={{headerShown: false}}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </ThemeProvider>

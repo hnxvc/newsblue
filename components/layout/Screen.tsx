@@ -29,8 +29,6 @@ const Screen = ({children}: {children: React.ReactNode}) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

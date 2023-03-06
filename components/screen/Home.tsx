@@ -1,19 +1,13 @@
-import {Text} from 'react-native';
 import React from 'react';
 import Screen from '../layout/Screen';
 import Heading from '../Heading';
+import Cart from '../Card';
 
 const Home = () => {
   return (
     <Screen>
-      <Text
-        style={{
-          fontFamily: 'Poppins',
-          backgroundColor: '#ccc',
-        }}>
-        Home
-        <Heading />
-      </Text>
+      <Heading />
+      <Cart />
     </Screen>
   );
 };
