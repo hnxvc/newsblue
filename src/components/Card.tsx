@@ -6,7 +6,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import CartImg from '../assets/images/Card.png';
 
 const Wrap = styled.View`
-  flex: 1;
   border-radius: 12;
   overflow: hidden;
 `;
@@ -20,32 +19,31 @@ const Bg = styled.View`
 `;
 
 const WrapText = styled(LinearGradient)`
-  padding-top: 16;
-  padding-bottom: 16;
-  padding-left: 20;
-  padding-right: 20;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   position: absolute;
-  bottom: 20;
+  bottom: 20px;
   background: rgba(255, 255, 255, 0.5);
   /* backdrop-filter: blur(12px); */
-  border-radius: 8;
-  left: 20;
-  right: 20;
+  border-radius: 8px;
+  left: 20px;
+  right: 20px;
 `;
 
 const Title = styled.Text`
   color: ${({theme}: {theme: ThemeContextType}) => theme.neutural.white};
   font-family: 'Poppins';
-  font-size: 14;
   font-weight: 600;
-  margin-bottom: 7;
 `;
 
 const Date = styled.Text`
   color: ${({theme}: {theme: ThemeContextType}) => theme.neutural.white};
-  font-size: 10;
+  font-size: 10px;
   font-weight: 400;
   font-family: 'Poppins';
+  margin-top: 10px;
 `;
 
 const Card = () => {

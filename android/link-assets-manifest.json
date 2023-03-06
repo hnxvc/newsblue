@@ -2,76 +2,104 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/Poppins-Black.ttf",
+      "path": "src/assets/fonts/Poppins-Black.ttf",
       "sha1": "645e04c53c6b5b35bce654a811ebce16af8aa721"
     },
     {
-      "path": "assets/fonts/Poppins-BlackItalic.ttf",
+      "path": "src/assets/fonts/Poppins-BlackItalic.ttf",
       "sha1": "be4ef2aac7775a4b0179c0ecfce6cea8f7783f63"
     },
     {
-      "path": "assets/fonts/Poppins-Bold.ttf",
+      "path": "src/assets/fonts/Poppins-Bold.ttf",
       "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
     },
     {
-      "path": "assets/fonts/Poppins-BoldItalic.ttf",
+      "path": "src/assets/fonts/Poppins-BoldItalic.ttf",
       "sha1": "6de8952ca08d27ee77f57347d2cef4b4e26aa78f"
     },
     {
-      "path": "assets/fonts/Poppins-ExtraBold.ttf",
+      "path": "src/assets/fonts/Poppins-ExtraBold.ttf",
       "sha1": "4b5c0750f073abd576413a0898d3b95adaf199c8"
     },
     {
-      "path": "assets/fonts/Poppins-ExtraBoldItalic.ttf",
+      "path": "src/assets/fonts/Poppins-ExtraBoldItalic.ttf",
       "sha1": "94d3ee3acdbd00e37a715a25f2b5237666b5b8a3"
     },
     {
-      "path": "assets/fonts/Poppins-ExtraLight.ttf",
+      "path": "src/assets/fonts/Poppins-ExtraLight.ttf",
       "sha1": "85af6582a7e6155917c605f9d3fed68c02b23b06"
     },
     {
-      "path": "assets/fonts/Poppins-ExtraLightItalic.ttf",
+      "path": "src/assets/fonts/Poppins-ExtraLightItalic.ttf",
       "sha1": "6fa0418f91032680d2d8fe4843009f2c80faa61d"
     },
     {
-      "path": "assets/fonts/Poppins-Italic.ttf",
+      "path": "src/assets/fonts/Poppins-Italic.ttf",
       "sha1": "e2bfcd56016c3c915221ef1c5fc1a17b0776eb91"
     },
     {
-      "path": "assets/fonts/Poppins-Light.ttf",
+      "path": "src/assets/fonts/Poppins-Light.ttf",
       "sha1": "e247a92158e112f8bf7b638c8d95381d66b00dbb"
     },
     {
-      "path": "assets/fonts/Poppins-LightItalic.ttf",
+      "path": "src/assets/fonts/Poppins-LightItalic.ttf",
       "sha1": "f76102b361e705751a83b7b22fe954daf1f27dd4"
     },
     {
-      "path": "assets/fonts/Poppins-Medium.ttf",
+      "path": "src/assets/fonts/Poppins-Medium.ttf",
       "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
     },
     {
-      "path": "assets/fonts/Poppins-MediumItalic.ttf",
+      "path": "src/assets/fonts/Poppins-MediumItalic.ttf",
       "sha1": "b592c62fdf88c40cfd0f031bba6423b1d4430472"
     },
     {
-      "path": "assets/fonts/Poppins-Regular.ttf",
+      "path": "src/assets/fonts/Poppins-Regular.ttf",
       "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
     },
     {
-      "path": "assets/fonts/Poppins-SemiBold.ttf",
+      "path": "src/assets/fonts/Poppins-SemiBold.ttf",
       "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
     },
     {
-      "path": "assets/fonts/Poppins-SemiBoldItalic.ttf",
+      "path": "src/assets/fonts/Poppins-SemiBoldItalic.ttf",
       "sha1": "0c8bed0a5942b2388d36b11c115685d9f01700b0"
     },
     {
-      "path": "assets/fonts/Poppins-Thin.ttf",
+      "path": "src/assets/fonts/Poppins-Thin.ttf",
       "sha1": "09ba4dcd5509c8085bf88c665dcc51cbdfced27b"
     },
     {
-      "path": "assets/fonts/Poppins-ThinItalic.ttf",
+      "path": "src/assets/fonts/Poppins-ThinItalic.ttf",
       "sha1": "fb8fccca21550e71135f92bbaf8a2e8a12c90465"
+    },
+    {
+      "path": "src/assets/images/Card.png",
+      "sha1": "21d2600aa9e648c9c1c48adac374e2682aa398fb"
+    },
+    {
+      "path": "src/assets/images/cate-focus.png",
+      "sha1": "433edc283732fca9c7a3a4d3785d52ee89ded456"
+    },
+    {
+      "path": "src/assets/images/cate.png",
+      "sha1": "2f9819722c7dddf3f112fd00c633b6305b803d45"
+    },
+    {
+      "path": "src/assets/images/home-focus.png",
+      "sha1": "4c024c00aa302d495611499a472c6c10b275fcd4"
+    },
+    {
+      "path": "src/assets/images/home.png",
+      "sha1": "91850e14a70618c31ea926f3a304ee4c2696d288"
+    },
+    {
+      "path": "src/assets/images/search-focus.png",
+      "sha1": "c51db36c095749b9064370b002783ed14f45b758"
+    },
+    {
+      "path": "src/assets/images/search.png",
+      "sha1": "8127d5d1eeeb1c6bc3293ea92f7223ff95dae5ca"
     }
   ]
 }

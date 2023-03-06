@@ -5,8 +5,7 @@ import React from 'react';
 
 const Wrap = styled.View`
   flex: 1;
-  padding-top: 10;
-  padding-bottom: 10;
+  padding-bottom: 25px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -14,12 +13,14 @@ const Wrap = styled.View`
 
 const Title = styled.Text`
   font-weight: 700;
-  font-size: 16;
+  font-size: 16px;
+  font-family: 'Poppins';
 `;
 
 const Link = styled.Text`
   color: ${({theme}: {theme: ThemeContextType}) => theme.primary.main};
-  font-size: 12;
+  font-size: 12px;
+  font-family: 'Poppins';
 `;
 
 const Heading = () => {

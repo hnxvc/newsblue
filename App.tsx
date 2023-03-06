@@ -2,24 +2,24 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {Image} from 'react-native';
-import {useTheme} from './context/hooks';
+import {useTheme} from './src/context/hooks';
 
-import Home from './components/screen/Home';
-import Category from './components/screen/Category';
-import Search from './components/screen/Search';
+import Home from './src/components/screen/Home';
+import Category from './src/components/screen/Category';
+import Search from './src/components/screen/Search';
 
 import {ThemeProvider} from 'styled-components';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import TabBG from './components/layout/TabBG';
+import TabBG from './src/components/layout/TabBG';
 
-import HomeIcon from './assets/images/home.png';
-import HomeIconFocus from './assets/images/home-focus.png';
-import CateIcon from './assets/images/cate.png';
-import CateIconFocus from './assets/images/cate-focus.png';
-import SearchIcon from './assets/images/search.png';
-import SearchIconFocus from './assets/images/search-focus.png';
+import HomeIcon from './src/assets/images/home.png';
+import HomeIconFocus from './src/assets/images/home-focus.png';
+import CateIcon from './src/assets/images/cate.png';
+import CateIconFocus from './src/assets/images/cate-focus.png';
+import SearchIcon from './src/assets/images/search.png';
+import SearchIconFocus from './src/assets/images/search-focus.png';
 
 const Tab = createBottomTabNavigator();
 
