@@ -2,9 +2,9 @@ import {Text} from 'react-native';
 import React from 'react';
 import Screen from '../layout/Screen';
 
-const PostDetail = () => {
+const PostDetail = ({navigation}: {navigation: any}) => {
   return (
-    <Screen>
+    <Screen title={'Detail'} navigation={navigation} isBack={true}>
       <Text>PostDetail</Text>
     </Screen>
   );

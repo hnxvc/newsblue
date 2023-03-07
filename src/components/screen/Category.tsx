@@ -27,7 +27,7 @@ const Category = ({navigation}: Props) => {
     navigation?.navigate('Posts');
   };
   return (
-    <Screen>
+    <Screen title={'Categories'}>
       <Section>
         <Wrap>
           {[1, 2, 3, 4, 5, 5, 5].map(({item, index}) => {
@@ -35,9 +35,9 @@ const Category = ({navigation}: Props) => {
               <Col key={index}>
                 <Card
                   title="Ui/UX"
-                  isCate={true}
+                  // isCate={true}
                   onPress={onPress}
-                  height={'110px'}
+                  height={'150px'}
                 />
               </Col>
             );

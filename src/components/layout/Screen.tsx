@@ -8,8 +8,16 @@ import {
   View,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Header from './Header';
 
-const Screen = ({children}: {children: React.ReactNode}) => {
+type Props = {
+  children: React.ReactNode;
+  title: string;
+  navigation?: any;
+  isBack?: boolean;
+};
+
+const Screen = ({children, title, navigation, isBack}: Props) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -23,6 +31,7 @@ const Screen = ({children}: {children: React.ReactNode}) => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView>
+        <Header title={title} navigation={navigation} isBack={isBack} />
         {children}
         <View style={styles.bottom} />
       </ScrollView>

@@ -12,7 +12,7 @@ const Posts = ({navigation}: Props) => {
     navigation.navigate('PostDetail');
   };
   return (
-    <Screen>
+    <Screen title={'Posts'} isBack={true} navigation={navigation}>
       <Section mt={'25px'}>
         {[1, 2, 3, 3, 3, 3, 3, 3, 3, 3].map((item, index) => {
           return (
