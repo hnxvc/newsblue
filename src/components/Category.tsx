@@ -37,7 +37,12 @@ const Category = ({navigation}: Props) => {
         {[1, 2, 3, 4].map(({item, index}) => {
           return (
             <Col key={index}>
-              <Card title="Ui/UX" isCate={true} onPress={onPress} />
+              <Card
+                title="Ui/UX"
+                isCate={true}
+                onPress={onPress}
+                height={'90px'}
+              />
             </Col>
           );
         })}

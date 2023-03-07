@@ -11,7 +11,7 @@ const Wrap = styled.TouchableHighlight`
 `;
 
 const Image = styled.ImageBackground`
-  height: ${({isCate}: {isCate: boolean}) => (isCate ? '82px' : '182px')};
+  height: ${({height}: {height: string}) => (height ? height : '182px')};
 `;
 
 const Bg = styled.View`
@@ -53,13 +53,14 @@ type Props = {
   title: string;
   date?: string;
   isCate?: boolean;
+  height?: string;
   onPress?: () => void;
 };
 
-const Card = ({title, date, isCate, onPress}: Props) => {
+const Card = ({title, date, isCate, onPress, height}: Props) => {
   return (
     <Wrap onPress={onPress}>
-      <Image source={CartImg} isCate={isCate}>
+      <Image source={CartImg} height={height}>
         <Bg />
         <WrapText
           isCate={isCate}
