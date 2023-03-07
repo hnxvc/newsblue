@@ -6,11 +6,12 @@ import LinearGradient from 'react-native-linear-gradient';
 import CartImg from '../../assets/images/Card.png';
 
 const Wrap = styled.View`
-  border-radius: 12;
+  border-radius: 12px;
   overflow: hidden;
 `;
+
 const Image = styled.ImageBackground`
-  height: 182;
+  height: ${({isCate}: {isCate: boolean}) => (isCate ? '82px' : '182px')};
 `;
 
 const Bg = styled.View`
@@ -19,17 +20,19 @@ const Bg = styled.View`
 `;
 
 const WrapText = styled(LinearGradient)`
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '16px')};
+  padding-bottom: ${({isCate}: {isCate: boolean}) =>
+    isCate ? '10px' : '16px'};
+  padding-left: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
+  padding-right: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
   position: absolute;
-  bottom: 30px;
-  background: rgba(255, 255, 255, 0.5);
-  /* backdrop-filter: blur(12px); */
+  bottom: ${({isCate}: {isCate: boolean}) => (isCate ? '20px' : '30px')};
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  left: 20px;
-  right: 20px;
+  left: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
+  right: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
+  top: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
+  bottom: ${({isCate}: {isCate: boolean}) => (isCate ? '10px' : '20px')};
 `;
 
 const Title = styled.Text`
@@ -48,22 +51,24 @@ const Date = styled.Text`
 
 type Props = {
   title: string;
-  date: string;
+  date?: string;
+  isCate?: boolean;
 };
 
-const Card = ({title, date}: Props) => {
+const Card = ({title, date, isCate}: Props) => {
   return (
     <Wrap>
-      <Image source={CartImg}>
+      <Image source={CartImg} isCate={isCate}>
         <Bg />
         <WrapText
+          isCate={isCate}
           colors={[
             'rgba(221, 221, 221, 0.48) 0%',
             'rgba(255, 255, 255, 0) 111.69%)',
           ]}
           start={{x: 270, y: 0}}>
           <Title>{title}</Title>
-          <Date>{date}</Date>
+          {date && <Date>{date}</Date>}
         </WrapText>
       </Image>
     </Wrap>

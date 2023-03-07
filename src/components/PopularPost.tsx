@@ -1,6 +1,6 @@
-import Section from './layout/Section';
-import Heading from './layout/Heading';
-import Card from './layout/Card';
+import Section from './common/Section';
+import Heading from './common/Heading';
+import Card from './common/Card';
 import Carousel from 'react-native-snap-carousel';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
@@ -52,6 +52,8 @@ const PopularPost = () => {
         layout={'default'}
         loop={true}
         onSnapToItem={index => setActiveIndex(index)}
+        autoplayDelay={5000}
+        autoplayInterval={5000}
       />
       <Pagination>
         {data.map((item, index) => {
