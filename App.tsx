@@ -50,6 +50,28 @@ const HomeNav = () => {
   );
 };
 
+const CateNav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Category"
+        component={Category}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Posts"
+        component={Posts}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="PostDetail"
+        component={PostDetail}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
 function App(): JSX.Element {
   const theme = useTheme();
 
@@ -93,13 +115,13 @@ function App(): JSX.Element {
             tabBarInactiveTintColor: '#7A7A7A',
           })}>
           <Tab.Screen
-            name="Home"
+            name="HomeNav"
             component={HomeNav}
             options={{headerShown: false}}
           />
           <Tab.Screen
-            name="Category"
-            component={Category}
+            name="CateNav"
+            component={CateNav}
             options={{headerShown: false}}
           />
           <Tab.Screen
