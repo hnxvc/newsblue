@@ -6,12 +6,16 @@ import {useTheme} from './src/context/hooks';
 
 import Home from './src/components/screen/Home';
 import Category from './src/components/screen/Category';
+import Posts from './src/components/screen/Posts';
+import PostDetail from './src/components/screen/PostDetail';
 import Search from './src/components/screen/Search';
 
 import {ThemeProvider} from 'styled-components';
 
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import TabBG from './src/components/layout/TabBG';
 
 import HomeIcon from './src/assets/images/home.png';
@@ -22,6 +26,29 @@ import SearchIcon from './src/assets/images/search.png';
 import SearchIconFocus from './src/assets/images/search-focus.png';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const HomeNav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="PostDetail"
+        component={PostDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Posts"
+        component={Posts}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
 
 function App(): JSX.Element {
   const theme = useTheme();
@@ -67,7 +94,7 @@ function App(): JSX.Element {
           })}>
           <Tab.Screen
             name="Home"
-            component={Home}
+            component={HomeNav}
             options={{headerShown: false}}
           />
           <Tab.Screen

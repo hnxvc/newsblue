@@ -5,7 +5,7 @@ import {ThemeContextType} from '../../context/ThemeContext';
 import LinearGradient from 'react-native-linear-gradient';
 import CartImg from '../../assets/images/Card.png';
 
-const Wrap = styled.View`
+const Wrap = styled.TouchableHighlight`
   border-radius: 12px;
   overflow: hidden;
 `;
@@ -53,11 +53,12 @@ type Props = {
   title: string;
   date?: string;
   isCate?: boolean;
+  onPress?: () => void;
 };
 
-const Card = ({title, date, isCate}: Props) => {
+const Card = ({title, date, isCate, onPress}: Props) => {
   return (
-    <Wrap>
+    <Wrap onPress={onPress}>
       <Image source={CartImg} isCate={isCate}>
         <Bg />
         <WrapText

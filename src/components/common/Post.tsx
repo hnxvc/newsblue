@@ -1,9 +1,10 @@
 import React from 'react';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
 import PostImage from '../../assets/images/post.png';
 import {ThemeContextType} from '../../context/ThemeContext';
 
-const Wrap = styled.View`
+const Wrap = styled.TouchableOpacity`
   flex-direction: row;
   margin-bottom: 25px;
   &:last-child {
@@ -14,6 +15,7 @@ const Wrap = styled.View`
 const Image = styled.Image`
   width: 91px;
   height: 91px;
+  border-radius: 8px;
 `;
 
 const PostDetail = styled.View`
@@ -54,10 +56,11 @@ type Props = {
   title: string;
   date: string;
   isRight?: boolean;
+  onPress: () => void;
 };
-const Post = ({id, cate, title, date, isRight}: Props) => {
+const Post = ({id, cate, title, date, isRight, onPress}: Props) => {
   return (
-    <Wrap>
+    <Wrap onPress={onPress}>
       {!isRight && <Image source={PostImage} />}
       <PostDetail isRight={isRight}>
         <Top>

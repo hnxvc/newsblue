@@ -26,26 +26,43 @@ const Dot = styled.View`
   margin: 0 4px;
 `;
 
-const renderItem = ({item, index}: {item: any; index: number}) => {
+type RenderProps = {
+  item: any;
+  index: number;
+  navigation: any;
+};
+
+const RenderItem = ({item, index, navigation}: RenderProps) => {
+  const onPres = () => {
+    navigation.navigate('PostDetail');
+  };
+
   return (
     <Card
+      onPress={onPres}
       title={`${index} steps to become a UI/UX designer`}
       date={'Dec 28 2021'}
     />
   );
 };
 
-const PopularPost = () => {
+type Props = {
+  navigation: any;
+};
+
+const PopularPost = ({navigation}: Props) => {
   const data = [1, 2, 3, 4, 5, 6];
 
   const [activeIndex, setActiveIndex] = useState<number>();
 
   return (
     <Section>
-      <Heading title="Popular Topics" />
+      <Heading title="Popular Post" />
       <Carousel
         data={data}
-        renderItem={renderItem}
+        renderItem={({item, index}) => (
+          <RenderItem item={item} index={index} navigation={navigation} />
+        )}
         sliderWidth={345}
         itemWidth={345}
         autoplay={true}

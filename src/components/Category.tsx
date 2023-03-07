@@ -18,23 +18,29 @@ const Col = styled.View`
   padding: 10px;
 `;
 
-const Category = () => {
+type Props = {
+  navigation: any;
+};
+const Category = ({navigation}: Props) => {
+  const onPress = () => {
+    navigation?.navigate('Posts');
+  };
   return (
     <Section>
-      <Heading title="Category" onClick={() => {}} />
+      <Heading
+        title="Category"
+        onPress={() => {
+          navigation.navigate('Category');
+        }}
+      />
       <Wrap>
-        <Col>
-          <Card title="Ui/UX" isCate={true} />
-        </Col>
-        <Col>
-          <Card title="Programming" isCate={true} />
-        </Col>
-        <Col>
-          <Card title="Algorithms" isCate={true} />
-        </Col>
-        <Col>
-          <Card title="Database" isCate={true} />
-        </Col>
+        {[1, 2, 3, 4].map(({item, index}) => {
+          return (
+            <Col key={index}>
+              <Card title="Ui/UX" isCate={true} onPress={onPress} />
+            </Col>
+          );
+        })}
       </Wrap>
     </Section>
   );

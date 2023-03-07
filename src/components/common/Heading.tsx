@@ -2,6 +2,7 @@
 import styled from 'styled-components/native';
 import {ThemeContextType} from '../context/ThemeContext';
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
 
 const Wrap = styled.View`
   flex: 1;
@@ -24,13 +25,17 @@ const Link = styled.Text`
 `;
 type Props = {
   title: string;
-  onClick?: () => void;
+  onPress?: () => void;
 };
-const Heading = ({title, onClick}: Props) => {
+const Heading = ({title, onPress}: Props) => {
   return (
     <Wrap>
       <Title>{title}</Title>
-      {onClick && <Link>See all</Link>}
+      {onPress && (
+        <TouchableOpacity onPress={onPress}>
+          <Link>See all</Link>
+        </TouchableOpacity>
+      )}
     </Wrap>
   );
 };
