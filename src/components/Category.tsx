@@ -21,7 +21,7 @@ const Col = styled.View`
 const Category = () => {
   return (
     <Section>
-      <Heading title="Category" />
+      <Heading title="Category" onClick={() => {}} />
       <Wrap>
         <Col>
           <Card title="Ui/UX" isCate={true} />

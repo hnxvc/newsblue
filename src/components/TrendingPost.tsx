@@ -6,7 +6,7 @@ import Post from './common/Post';
 const TrendingPost = () => {
   return (
     <Section mt={'25px'}>
-      <Heading title="Trending post" />
+      <Heading title="Trending post" onClick={() => {}} />
       {[1, 2, 3].map((item, index) => {
         return (
           <Post

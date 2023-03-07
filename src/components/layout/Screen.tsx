@@ -5,6 +5,7 @@ import {
   StatusBar,
   useColorScheme,
   ScrollView,
+  View,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -21,7 +22,10 @@ const Screen = ({children}: {children: React.ReactNode}) => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView>{children}</ScrollView>
+      <ScrollView>
+        {children}
+        <View style={styles.bottom} />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -29,6 +33,9 @@ const Screen = ({children}: {children: React.ReactNode}) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+  },
+  bottom: {
+    height: 70,
   },
 });
 

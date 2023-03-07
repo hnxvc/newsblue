@@ -22,12 +22,15 @@ const Link = styled.Text`
   font-size: 12px;
   font-family: 'Poppins';
 `;
-
-const Heading = ({title}: {title: string}) => {
+type Props = {
+  title: string;
+  onClick?: () => void;
+};
+const Heading = ({title, onClick}: Props) => {
   return (
     <Wrap>
       <Title>{title}</Title>
-      <Link>See all</Link>
+      {onClick && <Link>See all</Link>}
     </Wrap>
   );
 };

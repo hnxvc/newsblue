@@ -6,7 +6,7 @@ import Post from './common/Post';
 const RecommendPost = () => {
   return (
     <Section mt={'25px'}>
-      <Heading title="Recommend for you" />
+      <Heading title="Recommend for you" onClick={() => {}} />
       {[1, 2, 3].map(item => {
         return (
           <Post
