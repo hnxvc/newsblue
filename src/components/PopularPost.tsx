@@ -34,11 +34,17 @@ type RenderProps = {
 };
 
 const RenderItem = ({item, navigation}: RenderProps) => {
-  const onPres = () => {
-    navigation.navigate('PostDetail');
+  const onPress = (postId: number) => {
+    navigation.navigate('PostDetail', {postId});
   };
 
-  return <Card onPress={onPres} title={item.title} date={item.date} />;
+  return (
+    <Card
+      onPress={() => onPress(item.id)}
+      title={item.title}
+      date={item.date}
+    />
+  );
 };
 
 type Props = {

@@ -9,6 +9,7 @@ import {Image, View} from 'react-native';
 import CardImg from '../../assets/images/Card.png';
 // import ViewImg from '../../assets/images/eye.png';
 import BookmarkImg from '../../assets/images/bookmark.png';
+import {usePostById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
 
 const Title = styled.Text`
@@ -66,50 +67,23 @@ const Bottom = styled.View`
   justify-content: flex-end;
 `;
 
-const PostDetail = ({navigation}: {navigation: any}) => {
+const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
+  const postId = route.params?.postId;
+  const post = usePostById(postId);
   return (
     <Screen title={'Detail'} navigation={navigation} isBack={true}>
       <Section>
-        <Title>57 Key Lessons for UI & UX Designers</Title>
+        <Title>{post?.title}</Title>
         <Meta>
           <Left>
-            <Date>Dec 21 2021</Date>
+            <Date>{post?.date}</Date>
             <Cate>UI/UX</Cate>
           </Left>
           <Image source={BookmarkImg} style={{width: 15, height: 15}} />
         </Meta>
         <Thumbnail source={CardImg} />
         <Body>
-          <Text>
-            This is a mega-list of the most critical knowledge for UI, UX,
-            interaction, or product designers at any level.
-          </Text>
-          <Text>
-            Many of these lessons are also applicable to project managers,
-            engineers, strategists, QA, researchers, and others involved in
-            product development.
-          </Text>
-          <Text>
-            This is a curated collection of the foundational principles that
-            I’ve shared on my Medium blog over the past year. I’ve covered
-            topics like skill development, rules & principles, creativity,
-            career tips, and everything in between.
-          </Text>
-          <Text>
-            This is a mega-list of the most critical knowledge for UI, UX,
-            interaction, or product designers at any level.
-          </Text>
-          <Text>
-            Many of these lessons are also applicable to project managers,
-            engineers, strategists, QA, researchers, and others involved in
-            product development.
-          </Text>
-          <Text>
-            This is a curated collection of the foundational principles that
-            I’ve shared on my Medium blog over the past year. I’ve covered
-            topics like skill development, rules & principles, creativity,
-            career tips, and everything in between.
-          </Text>
+          <Text>{post?.content}</Text>
         </Body>
         <Bottom>{/* <Image source={ViewImg} /> */}</Bottom>
       </Section>

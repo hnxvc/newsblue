@@ -10,8 +10,10 @@ type Props = {
 };
 
 const RecommendPost = ({navigation, posts}: Props) => {
-  const onPress = () => {
-    navigation.navigate('PostDetail');
+  const onPress = (postId: number) => {
+    navigation.navigate('PostDetail', {
+      postId,
+    });
   };
   return (
     <Section mt={'25px'}>
@@ -32,7 +34,7 @@ const RecommendPost = ({navigation, posts}: Props) => {
               title={post.title}
               date={post.date}
               key={post.id}
-              onPress={onPress}
+              onPress={() => onPress(post.id)}
             />
           );
         })}

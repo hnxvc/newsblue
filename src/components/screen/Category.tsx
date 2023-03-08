@@ -26,8 +26,11 @@ type Props = {
 const Category = ({navigation}: Props) => {
   const categories = useCategories();
 
-  const onPress = () => {
-    navigation?.navigate('Posts');
+  const onPress = (id: number, title: string) => {
+    navigation?.navigate('Posts', {
+      cateId: id,
+      title,
+    });
   };
 
   return (
@@ -41,7 +44,7 @@ const Category = ({navigation}: Props) => {
                   <Card
                     title={cate.title}
                     // isCate={true}
-                    onPress={onPress}
+                    onPress={() => onPress(cate.id, cate.title)}
                     height={'150px'}
                   />
                 </Col>

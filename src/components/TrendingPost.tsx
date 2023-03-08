@@ -9,8 +9,10 @@ type Props = {
   posts: PostType[];
 };
 const TrendingPost = ({navigation, posts}: Props) => {
-  const onPress = () => {
-    navigation.navigate('PostDetail', {});
+  const onPress = (postId: number) => {
+    navigation.navigate('PostDetail', {
+      postId,
+    });
   };
   return (
     <Section mt={'25px'}>
@@ -26,7 +28,7 @@ const TrendingPost = ({navigation, posts}: Props) => {
       {posts.map(post => {
         return (
           <Post
-            onPress={onPress}
+            onPress={() => onPress(post.id)}
             cate={post.category}
             title={post.title}
             date={post.date}

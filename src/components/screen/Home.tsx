@@ -14,9 +14,9 @@ import {
 
 const Home = ({navigation}: {navigation: any}) => {
   const categories = useCategories();
-  const popularPosts = usePopularPosts();
-  const recommendPost = useRecommendPosts();
-  const trendingPost = useTrendingPosts();
+  const popularPosts = usePopularPosts().slice(0, 5);
+  const recommendPost = useRecommendPosts().slice(0, 3);
+  const trendingPost = useTrendingPosts().slice(0, 3);
 
   return (
     <Screen>
