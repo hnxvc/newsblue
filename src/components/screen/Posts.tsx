@@ -1,5 +1,5 @@
 import {Text} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import Post from '../common/Post';
@@ -9,6 +9,8 @@ import {
   useTrendingPosts,
 } from '../../context/hooks';
 import {PostType} from '../../types/index';
+import useDebounce from '../../hooks/debounce';
+import SearchInput from '../common/SearchInput';
 
 type Props = {
   navigation: any;
@@ -39,15 +41,30 @@ const Posts = ({route, navigation}: Props) => {
       postId,
     });
   };
+
+  const [keyword, setKeyword] = useState<string>('');
+  const keyDebounce = useDebounce<string>(keyword, 300);
+
+  const searchData = keyDebounce
+    ? data.filter(post => {
+        const t = post.title.toLocaleLowerCase();
+        const args = t.split(' ');
+        return args.indexOf(keyDebounce.toLowerCase()) > -1;
+      })
+    : data;
+
   return (
     <Screen title={title || 'Posts'} isBack={true} navigation={navigation}>
+      <Section>
+        <SearchInput keyword={keyword} setKeyword={setKeyword} />
+      </Section>
       <Section mt={'25px'}>
-        {data.length > 0 &&
-          data.map(item => {
+        {searchData.length > 0 &&
+          searchData.map(item => {
             return (
               <Post
                 onPress={() => onPress(item.id)}
-                cate={item.category}
+                cate={cateId ? '' : item.category}
                 title={item.title}
                 date={item.date}
                 key={item.id}

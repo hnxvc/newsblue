@@ -34,12 +34,12 @@ const Cate = styled.Text`
   font-family: 'Poppins';
   font-size: 14px;
   margin-top: -6px;
+  margin-bottom: 5px;
 `;
 
 const Title = styled.Text`
   font-weight: 600;
   font-size: 14px;
-  margin-top: 5px;
   font-family: 'Poppins';
   flex: 1;
   flex-wrap: wrap;
@@ -66,7 +66,7 @@ const Post = ({id, cate, title, date, isRight, onPress}: Props) => {
       {!isRight && <Image source={PostImage} />}
       <PostDetail isRight={isRight}>
         <Top>
-          <Cate>{cate}</Cate>
+          {cate && <Cate>{cate}</Cate>}
           <Title>{title}</Title>
         </Top>
         <Date>{date}</Date>
