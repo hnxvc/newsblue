@@ -43,11 +43,13 @@ const Title = styled.Text`
   font-family: 'Poppins';
   flex: 1;
   flex-wrap: wrap;
+  color: ${({theme}: {theme: ThemeContextType}) => theme.neutural[500]};
 `;
 
 const Date = styled.Text`
   color: ${({theme}: {theme: ThemeContextType}) => theme.neutural[300]};
   font-family: 'Poppins';
+  font-size: 10px;
 `;
 
 type Props = {

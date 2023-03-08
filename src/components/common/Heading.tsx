@@ -16,6 +16,7 @@ const Title = styled.Text`
   font-weight: 700;
   font-size: 16px;
   font-family: 'Poppins';
+  color: ${({theme}: {theme: ThemeContextType}) => theme.neutural[500]};
 `;
 
 const Link = styled.Text`

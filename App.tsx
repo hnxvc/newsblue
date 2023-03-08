@@ -8,7 +8,7 @@ import Home from './src/components/screen/Home';
 import Category from './src/components/screen/Category';
 import Posts from './src/components/screen/Posts';
 import PostDetail from './src/components/screen/PostDetail';
-import Search from './src/components/screen/Search';
+import Bookmark from './src/components/screen/Bookmark';
 
 import {ThemeProvider} from 'styled-components';
 
@@ -22,8 +22,8 @@ import HomeIcon from './src/assets/images/home.png';
 import HomeIconFocus from './src/assets/images/home-focus.png';
 import CateIcon from './src/assets/images/cate.png';
 import CateIconFocus from './src/assets/images/cate-focus.png';
-import SearchIcon from './src/assets/images/search.png';
-import SearchIconFocus from './src/assets/images/search-focus.png';
+import BookmarkIcon from './src/assets/images/bookmark.png';
+import BookmarkIconFocus from './src/assets/images/bookmark-focus.png';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -101,12 +101,12 @@ function App(): JSX.Element {
             tabBarIcon: ({focused}: {focused: any}) => {
               let srcImage;
 
-              if (route.name === 'Home') {
+              if (route.name === 'HomeNav') {
                 srcImage = focused ? HomeIconFocus : HomeIcon;
-              } else if (route.name === 'Category') {
+              } else if (route.name === 'CateNav') {
                 srcImage = focused ? CateIconFocus : CateIcon;
               } else {
-                srcImage = focused ? SearchIconFocus : SearchIcon;
+                srcImage = focused ? BookmarkIconFocus : BookmarkIcon;
               }
 
               return <Image source={srcImage} />;
@@ -117,17 +117,17 @@ function App(): JSX.Element {
           <Tab.Screen
             name="HomeNav"
             component={HomeNav}
-            options={{headerShown: false}}
+            options={{headerShown: false, title: 'Home'}}
           />
           <Tab.Screen
             name="CateNav"
             component={CateNav}
-            options={{headerShown: false}}
+            options={{headerShown: false, title: 'Categories'}}
           />
           <Tab.Screen
-            name="Search"
-            component={Search}
-            options={{headerShown: false}}
+            name="Bookmark"
+            component={Bookmark}
+            options={{headerShown: false, title: 'Bookmark'}}
           />
         </Tab.Navigator>
       </NavigationContainer>

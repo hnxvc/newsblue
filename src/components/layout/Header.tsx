@@ -26,8 +26,8 @@ const Text = styled.Text`
   font-weight: 600;
   font-family: 'Poppins';
   width: 100%;
-  text-align: center;
-  margin-left: -30px;
+  text-align: ${({isBack}: {isBack: boolean}) => (isBack ? 'center' : 'left')};
+  margin-left: ${({isBack}: {isBack: boolean}) => (isBack ? '-30px' : '0px')};
   z-index: -1;
 `;
 
@@ -46,7 +46,7 @@ const Header = ({title, isBack, navigation}: Props) => {
           <Image source={BackIcon} />
         </Back>
       )}
-      <Text>{title}</Text>
+      <Text isBack={isBack}>{title}</Text>
     </Wrap>
   );
 };
