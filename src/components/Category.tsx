@@ -24,8 +24,11 @@ type Props = {
   categories: CategoryType[];
 };
 const Category = ({navigation, categories}: Props) => {
-  const onPress = () => {
-    navigation?.navigate('Posts');
+  const onPress = (cateId: number, cateTitle: string) => {
+    navigation?.navigate('Posts', {
+      cateId,
+      title: cateTitle,
+    });
   };
   return (
     <Section>
@@ -43,7 +46,7 @@ const Category = ({navigation, categories}: Props) => {
                 <Card
                   title={cate?.title}
                   isCate={true}
-                  onPress={onPress}
+                  onPress={() => onPress(cate.id, cate.title)}
                   height={'90px'}
                 />
               </Col>

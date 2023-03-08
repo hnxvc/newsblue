@@ -10,13 +10,18 @@ type Props = {
 };
 const TrendingPost = ({navigation, posts}: Props) => {
   const onPress = () => {
-    navigation.navigate('PostDetail');
+    navigation.navigate('PostDetail', {});
   };
   return (
     <Section mt={'25px'}>
       <Heading
         title="Trending post"
-        onPress={() => navigation.navigate('Posts')}
+        onPress={() =>
+          navigation.navigate('Posts', {
+            title: 'Trending posts',
+            trending: true,
+          })
+        }
       />
       {posts.map(post => {
         return (

@@ -3,28 +3,57 @@ import React from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import Post from '../common/Post';
+import {
+  usePostsByCateId,
+  useRecommendPosts,
+  useTrendingPosts,
+} from '../../context/hooks';
+import {PostType} from '../../types/index';
 
 type Props = {
   navigation: any;
+  route: any;
 };
-const Posts = ({navigation}: Props) => {
-  const onPress = () => {
-    navigation.navigate('PostDetail');
+const Posts = ({route, navigation}: Props) => {
+  const title = route.params?.title;
+  const cateId = route.params?.cateId;
+  const postsCate = usePostsByCateId(cateId);
+
+  const recommended = route.params?.recommended;
+  const recommendedPosts = useRecommendPosts();
+
+  // const trending = route.params?.trending;
+  const trendingPosts = useTrendingPosts();
+
+  let data: PostType[] = [];
+  if (cateId) {
+    data = postsCate;
+  } else if (recommended) {
+    data = recommendedPosts;
+  } else {
+    data = trendingPosts;
+  }
+
+  const onPress = (postId: number) => {
+    navigation.navigate('PostDetail', {
+      postId,
+    });
   };
   return (
-    <Screen title={'Posts'} isBack={true} navigation={navigation}>
+    <Screen title={title || 'Posts'} isBack={true} navigation={navigation}>
       <Section mt={'25px'}>
-        {[1, 2, 3, 3, 3, 3, 3, 3, 3, 3].map((item, index) => {
-          return (
-            <Post
-              onPress={onPress}
-              cate={'UI/UX'}
-              title={'57 Key Lessons for UI & UX Designers'}
-              date={'Dec 21 2021'}
-              key={item}
-            />
-          );
-        })}
+        {data.length > 0 &&
+          data.map(item => {
+            return (
+              <Post
+                onPress={() => onPress(item.id)}
+                cate={item.category}
+                title={item.title}
+                date={item.date}
+                key={item.id}
+              />
+            );
+          })}
       </Section>
     </Screen>
   );

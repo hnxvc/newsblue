@@ -17,7 +17,12 @@ const RecommendPost = ({navigation, posts}: Props) => {
     <Section mt={'25px'}>
       <Heading
         title="Recommend for you"
-        onPress={() => navigation.navigate('Posts')}
+        onPress={() =>
+          navigation.navigate('Posts', {
+            recommended: true,
+            title: 'Recommend for you',
+          })
+        }
       />
       {posts.length > 0 &&
         posts.map(post => {
