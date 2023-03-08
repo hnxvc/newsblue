@@ -12,7 +12,7 @@ import Header from './Header';
 
 type Props = {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   navigation?: any;
   isBack?: boolean;
 };

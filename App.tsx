@@ -11,6 +11,7 @@ import PostDetail from './src/components/screen/PostDetail';
 import Bookmark from './src/components/screen/Bookmark';
 
 import {ThemeProvider} from 'styled-components';
+import AppProvider from './src/context/index';
 
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -72,6 +73,23 @@ const CateNav = () => {
   );
 };
 
+const BookmarkNav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Bookmark"
+        component={Bookmark}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="PostDetail"
+        component={PostDetail}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
+
 function App(): JSX.Element {
   const theme = useTheme();
 
@@ -79,7 +97,7 @@ function App(): JSX.Element {
     SplashScreen.hide();
   }, []);
 
-  const MyTheme = {
+  const CustomTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
@@ -88,50 +106,52 @@ function App(): JSX.Element {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer theme={MyTheme}>
-        <Tab.Navigator
-          screenOptions={({route}) => ({
-            tabBarStyle: {
-              position: 'absolute',
-              paddingTop: 10,
-              height: 85,
-            },
-            tabBarBackground: () => <TabBG />,
-            tabBarIcon: ({focused}: {focused: any}) => {
-              let srcImage;
+    <AppProvider>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer theme={CustomTheme}>
+          <Tab.Navigator
+            screenOptions={({route}) => ({
+              tabBarStyle: {
+                position: 'absolute',
+                paddingTop: 10,
+                height: 85,
+              },
+              tabBarBackground: () => <TabBG />,
+              tabBarIcon: ({focused}: {focused: any}) => {
+                let srcImage;
 
-              if (route.name === 'HomeNav') {
-                srcImage = focused ? HomeIconFocus : HomeIcon;
-              } else if (route.name === 'CateNav') {
-                srcImage = focused ? CateIconFocus : CateIcon;
-              } else {
-                srcImage = focused ? BookmarkIconFocus : BookmarkIcon;
-              }
+                if (route.name === 'HomeNav') {
+                  srcImage = focused ? HomeIconFocus : HomeIcon;
+                } else if (route.name === 'CateNav') {
+                  srcImage = focused ? CateIconFocus : CateIcon;
+                } else {
+                  srcImage = focused ? BookmarkIconFocus : BookmarkIcon;
+                }
 
-              return <Image source={srcImage} />;
-            },
-            tabBarActiveTintColor: '#0167FF',
-            tabBarInactiveTintColor: '#7A7A7A',
-          })}>
-          <Tab.Screen
-            name="HomeNav"
-            component={HomeNav}
-            options={{headerShown: false, title: 'Home'}}
-          />
-          <Tab.Screen
-            name="CateNav"
-            component={CateNav}
-            options={{headerShown: false, title: 'Categories'}}
-          />
-          <Tab.Screen
-            name="Bookmark"
-            component={Bookmark}
-            options={{headerShown: false, title: 'Bookmark'}}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </ThemeProvider>
+                return <Image source={srcImage} />;
+              },
+              tabBarActiveTintColor: '#0167FF',
+              tabBarInactiveTintColor: '#7A7A7A',
+            })}>
+            <Tab.Screen
+              name="HomeNav"
+              component={HomeNav}
+              options={{headerShown: false, title: 'Home'}}
+            />
+            <Tab.Screen
+              name="CateNav"
+              component={CateNav}
+              options={{headerShown: false, title: 'Categories'}}
+            />
+            <Tab.Screen
+              name="BookmarkNav"
+              component={BookmarkNav}
+              options={{headerShown: false, title: 'Bookmark'}}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </ThemeProvider>
+    </AppProvider>
   );
 }
 

@@ -2,8 +2,9 @@ import styled from 'styled-components/native';
 import Card from '../common/Card';
 import React from 'react';
 import Section from '../common/Section';
-import Heading from '../common/Heading';
 import Screen from '../layout/Screen';
+
+import {useCategories} from '../../context/hooks';
 
 const Wrap = styled.View`
   flex-wrap: wrap;
@@ -23,25 +24,29 @@ type Props = {
   navigation: any;
 };
 const Category = ({navigation}: Props) => {
+  const categories = useCategories();
+
   const onPress = () => {
     navigation?.navigate('Posts');
   };
+
   return (
     <Screen title={'Categories'}>
       <Section>
         <Wrap>
-          {[1, 2, 3, 4, 5, 5, 5].map(({item, index}) => {
-            return (
-              <Col key={index}>
-                <Card
-                  title="Ui/UX"
-                  // isCate={true}
-                  onPress={onPress}
-                  height={'150px'}
-                />
-              </Col>
-            );
-          })}
+          {categories.length > 0 &&
+            categories.map(cate => {
+              return (
+                <Col key={cate.id}>
+                  <Card
+                    title={cate.title}
+                    // isCate={true}
+                    onPress={onPress}
+                    height={'150px'}
+                  />
+                </Col>
+              );
+            })}
         </Wrap>
       </Section>
     </Screen>
