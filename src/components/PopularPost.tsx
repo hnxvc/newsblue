@@ -4,6 +4,7 @@ import Card from './common/Card';
 import Carousel from 'react-native-snap-carousel';
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import {PostType} from '../types';
 
 const Pagination = styled.View`
   flex: 1;
@@ -32,26 +33,21 @@ type RenderProps = {
   navigation: any;
 };
 
-const RenderItem = ({item, index, navigation}: RenderProps) => {
+const RenderItem = ({item, navigation}: RenderProps) => {
   const onPres = () => {
     navigation.navigate('PostDetail');
   };
 
-  return (
-    <Card
-      onPress={onPres}
-      title={`${index} steps to become a UI/UX designer`}
-      date={'Dec 28 2021'}
-    />
-  );
+  return <Card onPress={onPres} title={item.title} date={item.date} />;
 };
 
 type Props = {
   navigation: any;
+  posts: PostType[];
 };
 
-const PopularPost = ({navigation}: Props) => {
-  const data = [1, 2, 3, 4, 5, 6];
+const PopularPost = ({navigation, posts}: Props) => {
+  const data = posts;
 
   const [activeIndex, setActiveIndex] = useState<number>();
 

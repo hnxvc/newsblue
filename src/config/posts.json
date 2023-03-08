@@ -7,7 +7,9 @@
     "content": "This is a mega-list of the most critical knowledge for UI, UX, interaction, or product designers at any level.\n Many of these lessons are also applicable to project managers, engineers, strategists, QA, researchers, and others involved in product development.This is a curated collection of the foundational principles that I’ve shared on my Medium blog over the past year. I’ve covered topics like skill development, rules & principles, creativity, career tips, and everything in between.",
     "recommend": true,
     "trending": true,
-    "categoryId": 1
+    "popular": true,
+    "categoryId": 2,
+    "category": ""
   },
   {
     "id": 2,
@@ -17,7 +19,9 @@
     "content": "This is a mega-list of the most critical knowledge for UI, UX, interaction, or product designers at any level.\n Many of these lessons are also applicable to project managers, engineers, strategists, QA, researchers, and others involved in product development.This is a curated collection of the foundational principles that I’ve shared on my Medium blog over the past year. I’ve covered topics like skill development, rules & principles, creativity, career tips, and everything in between.",
     "recommend": true,
     "trending": true,
-    "categoryId": 1
+    "popular": true,
+    "categoryId": 1,
+    "category": ""
   },
   {
     "id": 3,
@@ -27,7 +31,9 @@
     "content": "This is a mega-list of the most critical knowledge for UI, UX, interaction, or product designers at any level.\n Many of these lessons are also applicable to project managers, engineers, strategists, QA, researchers, and others involved in product development.This is a curated collection of the foundational principles that I’ve shared on my Medium blog over the past year. I’ve covered topics like skill development, rules & principles, creativity, career tips, and everything in between.",
     "recommend": true,
     "trending": true,
-    "categoryId": 1
+    "popular": true,
+    "categoryId": 2,
+    "category": ""
   },
   {
     "id": 4,
@@ -37,6 +43,8 @@
     "content": "This is a mega-list of the most critical knowledge for UI, UX, interaction, or product designers at any level.\n Many of these lessons are also applicable to project managers, engineers, strategists, QA, researchers, and others involved in product development.This is a curated collection of the foundational principles that I’ve shared on my Medium blog over the past year. I’ve covered topics like skill development, rules & principles, creativity, career tips, and everything in between.",
     "recommend": false,
     "trending": false,
-    "categoryId": 1
+    "categoryId": 1,
+    "popular": false,
+    "category": ""
   }
 ]

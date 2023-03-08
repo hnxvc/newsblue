@@ -5,16 +5,24 @@ import RecommendPost from '../RecommendPost';
 import TrendingPost from '../TrendingPost';
 import Category from '../Category';
 
-import {useCategories} from '../../context/hooks';
+import {
+  useCategories,
+  usePopularPosts,
+  useRecommendPosts,
+  useTrendingPosts,
+} from '../../context/hooks';
 
 const Home = ({navigation}: {navigation: any}) => {
   const categories = useCategories();
+  const popularPosts = usePopularPosts();
+  const recommendPost = useRecommendPosts();
+  const trendingPost = useTrendingPosts();
 
   return (
     <Screen>
-      <PopularPost navigation={navigation} />
-      <RecommendPost navigation={navigation} />
-      <TrendingPost navigation={navigation} />
+      <PopularPost navigation={navigation} posts={popularPosts} />
+      <RecommendPost navigation={navigation} posts={recommendPost} />
+      <TrendingPost navigation={navigation} posts={trendingPost} />
       <Category navigation={navigation} categories={categories} />
     </Screen>
   );

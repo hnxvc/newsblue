@@ -11,5 +11,7 @@ export type PostType = {
   content: string;
   recommend: boolean;
   trending: boolean;
+  popular: boolean;
+  category: string;
   categoryId: number;
 };

@@ -2,11 +2,13 @@ import Section from './common/Section';
 import Heading from './common/Heading';
 import React from 'react';
 import Post from './common/Post';
+import {PostType} from '../types';
 
 type Props = {
   navigation: any;
+  posts: PostType[];
 };
-const TrendingPost = ({navigation}: Props) => {
+const TrendingPost = ({navigation, posts}: Props) => {
   const onPress = () => {
     navigation.navigate('PostDetail');
   };
@@ -16,14 +18,14 @@ const TrendingPost = ({navigation}: Props) => {
         title="Trending post"
         onPress={() => navigation.navigate('Posts')}
       />
-      {[1, 2, 3].map((item, index) => {
+      {posts.map(post => {
         return (
           <Post
             onPress={onPress}
-            cate={'UI/UX'}
-            title={'57 Key Lessons for UI & UX Designers'}
-            date={'Dec 21 2021'}
-            key={item}
+            cate={post.category}
+            title={post.title}
+            date={post.date}
+            key={post.id}
             isRight={true}
           />
         );
