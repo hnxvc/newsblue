@@ -11,6 +11,7 @@ import CardImg from '../../assets/images/Card.png';
 import BookmarkImg from '../../assets/images/bookmark.png';
 import {usePostById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
+import RenderHtml from 'react-native-render-html';
 
 const Title = styled.Text`
   font-weight: 700;
@@ -83,7 +84,11 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
         </Meta>
         <Thumbnail source={CardImg} />
         <Body>
-          <Text>{post?.content}</Text>
+          <RenderHtml
+            source={{
+              html: post?.content,
+            }}
+          />
         </Body>
         <Bottom>{/* <Image source={ViewImg} /> */}</Bottom>
       </Section>
