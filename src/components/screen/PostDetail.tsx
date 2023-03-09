@@ -4,14 +4,17 @@ import React from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import {ThemeContextType} from '../../context/ThemeContext';
-import {Image, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 
 import CardImg from '../../assets/images/Card.png';
 // import ViewImg from '../../assets/images/eye.png';
 import BookmarkImg from '../../assets/images/bookmark.png';
+import BookmarkEdImg from '../../assets/images/bookmarked.png';
 import {usePostById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
 import RenderHtml from 'react-native-render-html';
+import {addBookmarkPost, removeBookmarkPost} from '../../utils/storage';
+import {useIsBookmark} from '../../hooks';
 
 const Title = styled.Text`
   font-weight: 700;
@@ -71,6 +74,7 @@ const Bottom = styled.View`
 const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
   const postId = route.params?.postId;
   const post = usePostById(postId);
+  const isBookmark = useIsBookmark(postId);
   return (
     <Screen title={'Detail'} navigation={navigation} isBack={true}>
       <Section>
@@ -80,7 +84,18 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
             <Date>{post?.date}</Date>
             <Cate>UI/UX</Cate>
           </Left>
-          <Image source={BookmarkImg} style={{width: 15, height: 15}} />
+          <TouchableOpacity
+            onPress={() => {
+              isBookmark
+                ? removeBookmarkPost(post.id)
+                : addBookmarkPost(post.id);
+            }}>
+            {isBookmark ? (
+              <Image source={BookmarkEdImg} style={{width: 15, height: 15}} />
+            ) : (
+              <Image source={BookmarkImg} style={{width: 15, height: 15}} />
+            )}
+          </TouchableOpacity>
         </Meta>
         <Thumbnail source={CardImg} />
         <Body>

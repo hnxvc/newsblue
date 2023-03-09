@@ -1,27 +1,48 @@
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// const key = 'BOOKMARK';
-// export const bookmarkPost = async (postId: number) => {
-//   try {
-//     let posts = (await AsyncStorage.getItem(key)) || '';
+const key = 'BOOKMARK';
+export const addBookmarkPost = async (postId: number) => {
+  try {
+    let posts = await AsyncStorage.getItem(key);
+    if (!posts) {
+      await AsyncStorage.setItem(key, postId.toString());
+      return;
+    } else {
+      let postBookmark = await AsyncStorage.getItem(key);
+      const post = postBookmark?.split(',').find(id => Number(id) === postId);
+      if (!post) {
+        postBookmark += `,${postId}`;
+        await AsyncStorage.setItem(key, postBookmark || '');
+      }
+    }
+    console.log('===== succes');
+  } catch (e) {
+    // saving error
+  }
+};
 
-//     if (posts.length > 0) {
-//       posts = JSON.parse(posts);
-//       posts = posts.push(postId);
-//     }
+export const removeBookmarkPost = async (postId: number) => {
+  try {
+    const postBookmark = await AsyncStorage.getItem(key);
+    if (postBookmark === '' || !postBookmark) return;
 
-//     await AsyncStorage.setItem(key, posts);
-//   } catch (e) {
-//     // saving error
-//   }
-// };
+    const args = postBookmark.split(',');
 
-// export const removeBookmarkPost = async (postId: number) => {
-//   try {
-//     await AsyncStorage.removeItem(`bookmark`);
-//   } catch (e) {
-//     // saving error
-//   }
-// };
+    const filter = args.filter(id => Number(id) !== postId);
+
+    const str = filter.join(',');
+    await AsyncStorage.setItem(key, str);
+  } catch (e) {
+    // saving error
+  }
+};
+
+export const getBookmarkPosts = async () => {
+  const postBookmark = await AsyncStorage.getItem(key);
+  if (postBookmark) {
+    return postBookmark?.split(',') || [];
+  }
+  return [];
+};
 
 export default () => {};
