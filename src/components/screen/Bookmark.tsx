@@ -1,4 +1,3 @@
-import {Text} from 'react-native';
 import React, {useState} from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
@@ -8,20 +7,21 @@ import SearchInput from '../common/SearchInput';
 
 const Bookmark = ({navigation}: {navigation: any}) => {
   const posts = useBookmarkPosts();
-  console.log('===== posts', posts);
   const [keyword, setKeyword] = useState<string>('');
   const onPress = (postId: number) => {
     navigation.navigate('PostDetail', {
       postId: postId,
     });
   };
+
   return (
     <Screen title={'Bookmark'}>
       <Section>
         <SearchInput keyword={keyword} setKeyword={setKeyword} />
       </Section>
       <Section>
-        {posts.length > 0 &&
+        {posts &&
+          posts.length > 0 &&
           posts.map(post => {
             return (
               <Post

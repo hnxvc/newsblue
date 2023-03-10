@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {getBookmarkPosts} from '../utils/storage';
-import {usePosts} from '../context/hooks';
+import {DataContext} from '../context/DataContext';
 
 export const useBookmarkPostIds = () => {
-  const [posts, setPosts] = useState<string[]>();
+  const [posts, setPosts] = useState<number[]>();
 
   useEffect(() => {
     getBookmarkPosts().then(data => setPosts(data));
@@ -13,21 +13,11 @@ export const useBookmarkPostIds = () => {
 };
 
 export const useBookmarkPosts = () => {
-  // const [posts, setPosts] = useState<string[]>();
-  const postIds = useBookmarkPostIds();
-  const posts = usePosts();
-
-  const postFilter = posts?.filter(post => {
-    if (postIds?.find(id => post.id === Number(id))) {
-      return true;
-    }
-    return false;
-  });
-
-  return postFilter;
+  const {bookmarkPosts} = useContext(DataContext);
+  return bookmarkPosts();
 };
 
-export const useIsBookmark = (postId: number) => {
-  const postIds = useBookmarkPostIds();
-  return postIds?.find(id => Number(id) === postId);
+export const useIsBookmark = (postId: number): boolean => {
+  const {isBookmark} = useContext(DataContext);
+  return isBookmark ? isBookmark(postId) : false;
 };

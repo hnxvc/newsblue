@@ -6,18 +6,20 @@ export const addBookmarkPost = async (postId: number) => {
     let posts = await AsyncStorage.getItem(key);
     if (!posts) {
       await AsyncStorage.setItem(key, postId.toString());
-      return;
+      return postId;
     } else {
       let postBookmark = await AsyncStorage.getItem(key);
       const post = postBookmark?.split(',').find(id => Number(id) === postId);
       if (!post) {
         postBookmark += `,${postId}`;
         await AsyncStorage.setItem(key, postBookmark || '');
+        return postId;
       }
+      console.log('===== bookmark success', postId);
+      return null;
     }
-    console.log('===== succes');
   } catch (e) {
-    // saving error
+    console.error('Add bookmark error');
   }
 };
 
@@ -27,20 +29,19 @@ export const removeBookmarkPost = async (postId: number) => {
     if (postBookmark === '' || !postBookmark) return;
 
     const args = postBookmark.split(',');
-
     const filter = args.filter(id => Number(id) !== postId);
-
     const str = filter.join(',');
     await AsyncStorage.setItem(key, str);
+    return postId;
   } catch (e) {
-    // saving error
+    console.error('Remove bookmark error');
   }
 };
 
 export const getBookmarkPosts = async () => {
   const postBookmark = await AsyncStorage.getItem(key);
   if (postBookmark) {
-    return postBookmark?.split(',') || [];
+    return postBookmark?.split(',').map(item => Number(item)) || [];
   }
   return [];
 };
