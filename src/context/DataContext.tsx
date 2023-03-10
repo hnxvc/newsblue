@@ -13,9 +13,9 @@ type Data = {
   posts: PostType[];
   bookmarkPostIds: number[] | undefined;
   isBookmark: (postId: number) => boolean;
-  bookmarkPosts: () => PostType[] | [];
+  bookmarkPosts: PostType[];
   addBookmarkPost: (postId: number) => void;
-  removeBookmarkPostId: (postId: number) => void;
+  removeBookmarkPost: (postId: number) => void;
 };
 
 export const DataContext = createContext<Data>({
@@ -23,9 +23,9 @@ export const DataContext = createContext<Data>({
   posts: [],
   bookmarkPostIds: [],
   isBookmark: () => false,
-  bookmarkPosts: () => [],
+  bookmarkPosts: [],
   addBookmarkPost: () => {},
-  removeBookmarkPostId: () => {},
+  removeBookmarkPost: () => {},
 });
 
 type Props = {
@@ -38,7 +38,6 @@ const DataProvider = ({children}: Props) => {
   const [bookmarkPostIds, setPostIds] = useState<number[]>();
   useEffect(() => {
     storageGetBookmarkPosts().then(data => setPostIds(data));
-    console.log('==== bookmarkPostIds', bookmarkPostIds);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageGetBookmarkPosts, setPostIds]);
 
@@ -55,11 +54,13 @@ const DataProvider = ({children}: Props) => {
       });
   }
 
-  const removeBookmarkPostId = (postId: number) => {
+  const removeBookmarkPost = (postId: number) => {
     storageRemoveBookmarkPost(postId)
       .then(id => {
         if (id) {
-          const newPostIds = bookmarkPostIds?.concat([postId]);
+          const newPostIds = bookmarkPostIds?.filter(
+            pid => Number(pid) !== postId,
+          );
           setPostIds(newPostIds);
         }
       })
@@ -89,9 +90,9 @@ const DataProvider = ({children}: Props) => {
         posts: allPost,
         bookmarkPostIds: bookmarkPostIds,
         isBookmark,
-        bookmarkPosts,
+        bookmarkPosts: bookmarkPosts(),
         addBookmarkPost,
-        removeBookmarkPostId,
+        removeBookmarkPost,
       }}>
       {children}
     </DataContext.Provider>

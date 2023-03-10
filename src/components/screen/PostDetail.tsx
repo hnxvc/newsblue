@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import React from 'react';
+import React, {useContext} from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import {ThemeContextType} from '../../context/ThemeContext';
@@ -13,8 +13,8 @@ import BookmarkEdImg from '../../assets/images/bookmarked.png';
 import {usePostById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
 import RenderHtml from 'react-native-render-html';
-import {addBookmarkPost, removeBookmarkPost} from '../../utils/storage';
 import {useIsBookmark} from '../../hooks';
+import {DataContext} from '../../context/DataContext';
 
 const Title = styled.Text`
   font-weight: 700;
@@ -72,9 +72,12 @@ const Bottom = styled.View`
 `;
 
 const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
+  const {addBookmarkPost, removeBookmarkPost, isBookmark} =
+    useContext(DataContext);
+
   const postId = route.params?.postId;
   const post = usePostById(postId);
-  const isBookmark = useIsBookmark(postId);
+
   return (
     <Screen title={'Detail'} navigation={navigation} isBack={true}>
       <Section>
@@ -84,18 +87,15 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
             <Date>{post?.date}</Date>
             <Cate>UI/UX</Cate>
           </Left>
-          <TouchableOpacity
-            onPress={() => {
-              isBookmark
-                ? removeBookmarkPost(post.id)
-                : addBookmarkPost(post.id);
-            }}>
-            {isBookmark ? (
+          {isBookmark(postId) ? (
+            <TouchableOpacity onPress={() => removeBookmarkPost(post.id)}>
               <Image source={BookmarkEdImg} style={{width: 15, height: 15}} />
-            ) : (
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity onPress={() => addBookmarkPost(post.id)}>
               <Image source={BookmarkImg} style={{width: 15, height: 15}} />
-            )}
-          </TouchableOpacity>
+            </TouchableOpacity>
+          )}
         </Meta>
         <Thumbnail source={CardImg} />
         <Body>

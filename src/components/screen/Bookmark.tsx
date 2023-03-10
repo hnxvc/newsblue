@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import Post from '../common/Post';
-import {useBookmarkPosts} from '../../hooks';
 import SearchInput from '../common/SearchInput';
+import {DataContext} from '../../context/DataContext';
 
 const Bookmark = ({navigation}: {navigation: any}) => {
-  const posts = useBookmarkPosts();
+  const {bookmarkPosts} = useContext(DataContext);
+
   const [keyword, setKeyword] = useState<string>('');
   const onPress = (postId: number) => {
     navigation.navigate('PostDetail', {
@@ -20,9 +21,9 @@ const Bookmark = ({navigation}: {navigation: any}) => {
         <SearchInput keyword={keyword} setKeyword={setKeyword} />
       </Section>
       <Section>
-        {posts &&
-          posts.length > 0 &&
-          posts.map(post => {
+        {bookmarkPosts &&
+          bookmarkPosts.length > 0 &&
+          bookmarkPosts.map(post => {
             return (
               <Post
                 onPress={() => onPress(post.id)}
