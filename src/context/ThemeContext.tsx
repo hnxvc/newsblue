@@ -40,7 +40,7 @@ const defaultValue: ThemeContextType = {
     500: '#001533',
     400: '#002255',
     300: '#7A7A7A',
-    200: '#FFFFF',
+    200: '#B7B7B7',
     100: '#EAEAEA',
     white: '#FFFFFF',
     whitegrey: '#F2F2F2',
