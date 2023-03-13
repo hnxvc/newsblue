@@ -48,7 +48,7 @@ const Category = ({navigation, categories}: Props) => {
                   image={cate?.image}
                   isCate={true}
                   onPress={() => onPress(cate.id, cate.title)}
-                  height={'90px'}
+                  height={90}
                 />
               </Col>
             );

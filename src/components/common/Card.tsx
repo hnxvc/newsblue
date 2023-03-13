@@ -11,7 +11,7 @@ const Wrap = styled.TouchableHighlight`
 `;
 
 const Image = styled.ImageBackground`
-  height: ${({height}: {height: string}) => (height ? height : '182px')};
+  height: ${({height}: {height: string}) => (height ? height + 'px' : '182px')};
 `;
 
 const Bg = styled.View`
@@ -53,7 +53,7 @@ type Props = {
   title: string;
   date?: string;
   isCate?: boolean;
-  height?: string;
+  height?: number;
   image?: string;
   onPress?: () => void;
 };

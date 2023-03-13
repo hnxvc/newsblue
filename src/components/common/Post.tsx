@@ -6,9 +6,6 @@ import {PostType} from '../../types';
 const Wrap = styled.TouchableOpacity`
   flex-direction: row;
   margin-bottom: 25px;
-  &:last-child {
-    margin-bottom: 0px;
-  }
 `;
 
 const Image = styled.Image`

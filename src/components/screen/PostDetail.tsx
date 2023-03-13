@@ -13,6 +13,7 @@ import {usePostById, useCateById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
 import RenderHtml from 'react-native-render-html';
 import {DataContext} from '../../context/DataContext';
+import {useWindowDimensions} from 'react-native';
 
 const Title = styled.Text`
   font-weight: 700;
@@ -77,6 +78,8 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
   const post = usePostById(postId);
   const cate = useCateById(post.categoryId);
 
+  const {width} = useWindowDimensions();
+
   return (
     <Screen title={'Detail'} navigation={navigation} isBack={true}>
       <Section>
@@ -99,6 +102,7 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
         <Thumbnail source={{uri: post.image}} />
         <Body>
           <RenderHtml
+            contentWidth={width}
             source={{
               html: post?.content,
             }}
