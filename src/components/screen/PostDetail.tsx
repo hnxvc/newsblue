@@ -4,16 +4,14 @@ import React, {useContext} from 'react';
 import Screen from '../layout/Screen';
 import Section from '../common/Section';
 import {ThemeContextType} from '../../context/ThemeContext';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 
-import CardImg from '../../assets/images/Card.png';
 // import ViewImg from '../../assets/images/eye.png';
 import BookmarkImg from '../../assets/images/bookmark.png';
 import BookmarkEdImg from '../../assets/images/bookmarked.png';
-import {usePostById} from '../../context/hooks';
+import {usePostById, useCateById} from '../../context/hooks';
 // import BookmarkImgEd from '../../assets/images/bookmarked.png';
 import RenderHtml from 'react-native-render-html';
-import {useIsBookmark} from '../../hooks';
 import {DataContext} from '../../context/DataContext';
 
 const Title = styled.Text`
@@ -77,6 +75,7 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
 
   const postId = route.params?.postId;
   const post = usePostById(postId);
+  const cate = useCateById(post.categoryId);
 
   return (
     <Screen title={'Detail'} navigation={navigation} isBack={true}>
@@ -85,7 +84,7 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
         <Meta>
           <Left>
             <Date>{post?.date}</Date>
-            <Cate>UI/UX</Cate>
+            <Cate>{cate?.title}</Cate>
           </Left>
           {isBookmark(postId) ? (
             <TouchableOpacity onPress={() => removeBookmarkPost(post.id)}>
@@ -97,7 +96,7 @@ const PostDetail = ({route, navigation}: {route: any; navigation: any}) => {
             </TouchableOpacity>
           )}
         </Meta>
-        <Thumbnail source={CardImg} />
+        <Thumbnail source={{uri: post.image}} />
         <Body>
           <RenderHtml
             source={{

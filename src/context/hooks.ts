@@ -14,6 +14,11 @@ export const useCategories = (): CategoryType[] => {
   return useContext(DataContext).categories;
 };
 
+export const useCateById = (cateId: number): CategoryType | undefined => {
+  const categories = useCategories();
+  return categories?.find(cate => cate.id === cateId);
+};
+
 export const usePosts = (): PostType[] => {
   return useContext(DataContext).posts;
 };
@@ -42,7 +47,7 @@ export const useTrendingPosts = (): PostType[] => {
 
 export const useRecommendPosts = (): PostType[] => {
   const posts = usePostsMapCategory();
-  return posts.filter(post => post.trending === true);
+  return posts.filter(post => post.recommend === true);
 };
 
 export const usePostById = (postId: number): PostType => {

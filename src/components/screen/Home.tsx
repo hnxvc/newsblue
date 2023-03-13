@@ -21,8 +21,8 @@ const Home = ({navigation}: {navigation: any}) => {
   return (
     <Screen>
       <PopularPost navigation={navigation} posts={popularPosts} />
-      <RecommendPost navigation={navigation} posts={recommendPost} />
       <TrendingPost navigation={navigation} posts={trendingPost} />
+      <RecommendPost navigation={navigation} posts={recommendPost} />
       <Category navigation={navigation} categories={categories} />
     </Screen>
   );

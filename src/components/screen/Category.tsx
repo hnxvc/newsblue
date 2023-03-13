@@ -27,7 +27,6 @@ type Props = {
 };
 const Category = ({navigation}: Props) => {
   const categories = useCategories();
-  console.log('====== categories22', categories);
 
   const onPress = (id: number, title: string) => {
     navigation?.navigate('Posts', {
