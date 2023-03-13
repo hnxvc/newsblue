@@ -26,6 +26,12 @@ import CateIconFocus from './src/assets/images/cate-focus.png';
 import BookmarkIcon from './src/assets/images/bookmark.png';
 import BookmarkIconFocus from './src/assets/images/bookmark-focus.png';
 
+import {LogBox} from 'react-native';
+LogBox.ignoreLogs([
+  'ViewPropTypes will be removed',
+  'ColorPropType will be removed',
+]);
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 

@@ -44,6 +44,7 @@ const RenderItem = ({item, navigation}: RenderProps) => {
       title={item.title}
       date={item.date}
       image={item.image}
+      key={item.id}
     />
   );
 };
@@ -77,7 +78,7 @@ const PopularPost = ({navigation, posts}: Props) => {
       />
       <Pagination>
         {data.map((item, index) => {
-          return <Dot isActive={activeIndex === index} />;
+          return <Dot key={item.id} isActive={activeIndex === index} />;
         })}
       </Pagination>
     </Section>

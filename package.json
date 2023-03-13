@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@types/react-native-snap-carousel": "^3.8.5",
+    "deprecated-react-native-prop-types": "^4.0.0",
     "react": "18.2.0",
     "react-native": "0.71.3",
     "react-native-linear-gradient": "^2.6.2",
