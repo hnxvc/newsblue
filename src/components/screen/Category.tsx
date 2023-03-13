@@ -27,6 +27,7 @@ type Props = {
 };
 const Category = ({navigation}: Props) => {
   const categories = useCategories();
+  console.log('====== categories22', categories);
 
   const onPress = (id: number, title: string) => {
     navigation?.navigate('Posts', {
@@ -42,7 +43,6 @@ const Category = ({navigation}: Props) => {
     ? categories.filter(cate => {
         const title = cate.title.toLocaleLowerCase();
         const args = title.split(' ');
-        console.log('===args', args);
         return args.indexOf(keyDebounce.toLowerCase()) > -1;
       })
     : categories;
@@ -61,6 +61,7 @@ const Category = ({navigation}: Props) => {
                   <Card
                     title={cate.title}
                     // isCate={true}
+                    image={cate.image}
                     onPress={() => onPress(cate.id, cate.title)}
                     height={'150px'}
                   />

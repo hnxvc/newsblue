@@ -64,9 +64,7 @@ const Posts = ({route, navigation}: Props) => {
             return (
               <Post
                 onPress={() => onPress(item.id)}
-                cate={cateId ? '' : item.category}
-                title={item.title}
-                date={item.date}
+                post={item}
                 key={item.id}
               />
             );

@@ -1,30 +1,37 @@
 [
   {
     "id": 1,
-    "title": "Programing"
+    "title": "Programming",
+    "image": "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
   },
   {
     "id": 2,
-    "title": "UI/UX"
+    "title": "UI/UX",
+    "image": "https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg"
   },
   {
     "id": 3,
-    "title": "UI/UX 3"
+    "title": "Productivity",
+    "image": "https://media.istockphoto.com/id/1349380508/photo/businessman-holding-tablet-and-draws-growing-virtual-hologram-of-statistics-graph-and-chart.jpg?s=612x612&w=0&k=20&c=lO4PM7sgX2EvCRsRYHEZvhQ4qHEtc7mrWABltVUZRmY="
   },
   {
     "id": 4,
-    "title": "UI/UX 4"
+    "title": "Psychology",
+    "image": "https://thumbs.dreamstime.com/b/modern-head-logo-sign-psychology-profile-human-green-leaves-creative-style-symbol-vector-design-concept-brand-company-violet-90523595.jpg"
   },
   {
     "id": 5,
-    "title": "UI/UX 5"
+    "title": "Business",
+    "image": "https://media.istockphoto.com/id/1256603011/photo/business-network-concept-customer-support-shaking-hands.jpg?s=612x612&w=0&k=20&c=uRYJ6c2EyNO92w0wQlCScEVwbdoyHaXzfIxw1q7zNLA="
   },
   {
     "id": 6,
-    "title": "UI/UX 6"
+    "title": "Cryptocurrency",
+    "image": "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?cs=srgb&dl=pexels-worldspectrum-844124.jpg&fm=jpg"
   },
   {
     "id": 7,
-    "title": "UI/UX 7"
+    "title": "Politics",
+    "image": "https://thumbs.dreamstime.com/b/politics-government-referendum-democracy-vote-concept-76390514.jpg"
   }
 ]

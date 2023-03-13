@@ -29,13 +29,7 @@ const RecommendPost = ({navigation, posts}: Props) => {
       {posts.length > 0 &&
         posts.map(post => {
           return (
-            <Post
-              cate={post.category}
-              title={post.title}
-              date={post.date}
-              key={post.id}
-              onPress={() => onPress(post.id)}
-            />
+            <Post post={post} key={post.id} onPress={() => onPress(post.id)} />
           );
         })}
     </Section>

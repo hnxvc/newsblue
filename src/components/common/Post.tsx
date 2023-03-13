@@ -1,8 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
 import styled from 'styled-components/native';
-import PostImage from '../../assets/images/post.png';
 import {ThemeContextType} from '../../context/ThemeContext';
+import {PostType} from '../../types';
 
 const Wrap = styled.TouchableOpacity`
   flex-direction: row;
@@ -53,25 +52,22 @@ const Date = styled.Text`
 `;
 
 type Props = {
-  id?: number;
-  cate: string;
-  title: string;
-  date: string;
+  post: PostType;
   isRight?: boolean;
   onPress: () => void;
 };
-const Post = ({id, cate, title, date, isRight, onPress}: Props) => {
+const Post = ({post, isRight, onPress}: Props) => {
   return (
     <Wrap onPress={onPress}>
-      {!isRight && <Image source={PostImage} />}
+      {!isRight && <Image source={{uri: post?.image}} />}
       <PostDetail isRight={isRight}>
         <Top>
-          {cate && <Cate>{cate}</Cate>}
-          <Title>{title}</Title>
+          {post?.category && <Cate>{post?.category}</Cate>}
+          <Title>{post?.title}</Title>
         </Top>
-        <Date>{date}</Date>
+        <Date>{post?.date}</Date>
       </PostDetail>
-      {isRight && <Image source={PostImage} />}
+      {isRight && <Image source={{uri: post?.image}} />}
     </Wrap>
   );
 };

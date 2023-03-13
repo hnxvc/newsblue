@@ -29,9 +29,7 @@ const TrendingPost = ({navigation, posts}: Props) => {
         return (
           <Post
             onPress={() => onPress(post.id)}
-            cate={post.category}
-            title={post.title}
-            date={post.date}
+            post={post}
             key={post.id}
             isRight={true}
           />

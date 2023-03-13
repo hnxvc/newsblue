@@ -54,13 +54,15 @@ type Props = {
   date?: string;
   isCate?: boolean;
   height?: string;
+  image?: string;
   onPress?: () => void;
 };
 
-const Card = ({title, date, isCate, onPress, height}: Props) => {
+const Card = ({title, date, image, isCate, onPress, height}: Props) => {
+  const source = image ? {uri: image} : CartImg;
   return (
     <Wrap onPress={onPress}>
-      <Image source={CartImg} height={height}>
+      <Image source={source} height={height}>
         <Bg />
         <WrapText
           isCate={isCate}

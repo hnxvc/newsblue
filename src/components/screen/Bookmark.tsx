@@ -27,9 +27,7 @@ const Bookmark = ({navigation}: {navigation: any}) => {
             return (
               <Post
                 onPress={() => onPress(post.id)}
-                cate={'UI/UX'}
-                title={post.title}
-                date={post.date}
+                post={post}
                 key={post.id}
               />
             );
