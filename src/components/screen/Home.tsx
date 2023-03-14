@@ -4,6 +4,7 @@ import PopularPost from '../PopularPost';
 import RecommendPost from '../RecommendPost';
 import TrendingPost from '../TrendingPost';
 import Category from '../Category';
+import Logo from '../common/Logo';
 
 import {
   useCategories,
@@ -20,6 +21,7 @@ const Home = ({navigation}: {navigation: any}) => {
 
   return (
     <Screen>
+      <Logo />
       <PopularPost navigation={navigation} posts={popularPosts} />
       <TrendingPost navigation={navigation} posts={trendingPost} />
       <RecommendPost navigation={navigation} posts={recommendPost} />
