@@ -51,6 +51,7 @@ const SearchInput = ({
         placeholder="Search here ..."
         onChangeText={(value: string) => setKeyword(value)}
         value={keyword}
+        placeholderTextColor="#7A7A7A"
       />
       {keyword !== '' && (
         <Icon onPress={() => setKeyword('')}>

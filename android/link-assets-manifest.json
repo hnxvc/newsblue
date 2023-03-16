@@ -78,12 +78,40 @@
       "sha1": "21d2600aa9e648c9c1c48adac374e2682aa398fb"
     },
     {
+      "path": "src/assets/images/Logo.png",
+      "sha1": "e065366d88bbe6897c2a50960176121db72fc5bd"
+    },
+    {
+      "path": "src/assets/images/back.png",
+      "sha1": "0d43a97b92beb2a8c39cc0b9d16699d5901c3c85"
+    },
+    {
+      "path": "src/assets/images/bookmark-focus.png",
+      "sha1": "162c5442df728940be7fa5050ff29f49b565242b"
+    },
+    {
+      "path": "src/assets/images/bookmark.png",
+      "sha1": "182ae4b567416042fad1bccf4e7acee75e160251"
+    },
+    {
+      "path": "src/assets/images/bookmarked.png",
+      "sha1": "0472cb5eb6a70211b84ee474f3e1d0490d4496c0"
+    },
+    {
       "path": "src/assets/images/cate-focus.png",
       "sha1": "433edc283732fca9c7a3a4d3785d52ee89ded456"
     },
     {
       "path": "src/assets/images/cate.png",
       "sha1": "2f9819722c7dddf3f112fd00c633b6305b803d45"
+    },
+    {
+      "path": "src/assets/images/clear.png",
+      "sha1": "65b3ec08297d4fb0fc2307bb49ae47d515aff014"
+    },
+    {
+      "path": "src/assets/images/eye.png",
+      "sha1": "d5b5e729210423bd0cc77e8e3f862a98a8780c4e"
     },
     {
       "path": "src/assets/images/home-focus.png",
@@ -94,12 +122,16 @@
       "sha1": "91850e14a70618c31ea926f3a304ee4c2696d288"
     },
     {
+      "path": "src/assets/images/post.png",
+      "sha1": "59effd477d5dc247a526c6dca4614df6386f4772"
+    },
+    {
       "path": "src/assets/images/search-focus.png",
       "sha1": "c51db36c095749b9064370b002783ed14f45b758"
     },
     {
       "path": "src/assets/images/search.png",
-      "sha1": "8127d5d1eeeb1c6bc3293ea92f7223ff95dae5ca"
+      "sha1": "597fc154aafabe17376232cdeef47fcc3352fead"
     }
   ]
 }

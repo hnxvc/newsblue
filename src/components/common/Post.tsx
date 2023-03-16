@@ -24,8 +24,6 @@ const PostDetail = styled.View`
 const Top = styled.View``;
 
 const Cate = styled.Text`
-  background-color: ${({theme}: {theme: ThemeContextType}) =>
-    theme.primary.focus};
   color: ${({theme}: {theme: ThemeContextType}) => theme.primary.main};
   font-family: 'Poppins';
   font-size: 14px;

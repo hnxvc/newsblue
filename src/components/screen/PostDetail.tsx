@@ -41,8 +41,6 @@ const Date = styled.Text`
 `;
 
 const Cate = styled.Text`
-  background-color: ${({theme}: {theme: ThemeContextType}) =>
-    theme.primary.focus};
   color: ${({theme}: {theme: ThemeContextType}) => theme.primary.main};
   font-family: 'Poppins';
   font-size: 10px;
@@ -58,12 +56,6 @@ const Thumbnail = styled.Image`
 `;
 
 const Body = styled.View``;
-const Text = styled.Text`
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: ${({theme}: {theme: ThemeContextType}) => theme.neutural[500]};
-`;
 
 const Bottom = styled.View`
   flex-direction: row;
